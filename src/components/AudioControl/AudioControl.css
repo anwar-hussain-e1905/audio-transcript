@@ -1,0 +1,45 @@
+.audio-control {
+  --control-color: #696868;
+  --border-color: #b9b5b5;
+  max-width: 850px;
+  background-color: #f2f5f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audio-control__controls-wrapper {
+  display: flex;;
+  align-items: center;
+}
+
+.audio-control__control-icons {
+  font-size: 1rem;
+  color: #696868;
+}
+
+.audio-control__play-pause {
+  font-size: 1.56rem;
+  margin: 0 5px;
+  color: rgb(var(--primary-color));
+}
+
+.audio-control__speed {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--control-color);
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+}
+
+.audio-control__share {
+  height: 25px;
+  border: 1px solid var(--border-color);
+  color: var(--control-color);
+  background-color: #fff;
+  padding: 0 10px;
+}
+
+.audio-control__disabled {
+  opacity: 0.2;
+}

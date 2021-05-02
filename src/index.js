@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './fonts/icomoon.eot';
+import './fonts/icomoon.ttf';
+import './fonts/icomoon.woff';
+import './fonts/icomoon.svg';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
