@@ -16,7 +16,13 @@
 }
 
 .audio-transcript__speaker-wrapper span {
+  transition: background-color 0.15s ease-in;
   margin: 0 2px;
+  display: inline-block;
+}
+
+.audio-transcript__speaker-wrapper span.active {
+  background-color: rgba(var(--primary-color), 0.5);;
 }
 
 .audio-transcript__start-duration {
@@ -24,11 +30,19 @@
   border-right: 2px solid;
 }
 
-.audio-transcript__start-duration--one {
+.audio-transcript__start-duration--one:hover {
+  background-color: rgba(var(--primary-color), 0.1);
+}
+
+.audio-transcript__start-duration--two:hover {
+  background-color: rgba(var(--secondary-color), 0.1);
+}
+
+.audio-transcript__start-duration--one .audio-transcript__start-duration {
   border-color: rgba(var(--primary-color), 0.5);
 }
 
-.audio-transcript__start-duration--two {
+.audio-transcript__start-duration--two .audio-transcript__start-duration {
   border-color: rgba(var(--secondary-color), 0.5);
   margin-left: 50px;
 }

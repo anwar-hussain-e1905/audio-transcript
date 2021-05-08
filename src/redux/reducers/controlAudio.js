@@ -1,9 +1,10 @@
-import { PLAY_AUDIO } from "../actionTypes";
+import { PLAY_AUDIO, MOVE_FORWARD, MOVE_BACKWARD, CONTROL_PLAYBACK } from "../actionTypes";
 
 const initialState = {
   play: false,
-  moveBackward: false,
-  moveForward: true
+  playbackRateIndex: 0,
+  moveBackward: 0,
+  moveForward: 0
 };
 
 const controlAudio = (state = initialState, action) => {
@@ -13,6 +14,27 @@ const controlAudio = (state = initialState, action) => {
       return {
         ...state,
         play
+      };
+    }
+    case MOVE_FORWARD: {
+      const { moveForward } = action.payload;
+      return {
+        ...state,
+        moveForward
+      };
+    }
+    case MOVE_BACKWARD: {
+      const { moveBackward } = action.payload;
+      return {
+        ...state,
+        moveBackward
+      };
+    }
+    case CONTROL_PLAYBACK: {
+      const { playbackRateIndex } = action.payload;
+      return {
+        ...state,
+        playbackRateIndex
       };
     }
     default: {

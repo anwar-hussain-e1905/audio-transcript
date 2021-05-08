@@ -28,6 +28,13 @@
   background-color: rgb(var(--secondary-color));
 }
 
+.audio-block__render--progress {
+  height: 10px;
+  top: 50%;
+  transform: translateY(-5px);
+  background-color: rgb(53, 50, 50);
+}
+
 .audio-block--completed-state {
   width: 0;
   background-color: #e4dbdb;
@@ -36,25 +43,35 @@
 .audio-block__one,
 .audio-block__two {
   height: var(--block-height);
-  margin-left: -1px;
   margin-right: -1px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .audio-block__separator {
-  height: 30px;
+  height: 15px;
   background: #fff;
+}
+
+.audio-block__separator--last {
+  margin-top: 1px;
 }
 
 .audio-block__block {
   cursor: pointer;
   display: inline-block;
-  width: 3px;
+  width: 2px;
   height: 100%;
-  border-left: 1px solid;
   border-right: 1px solid;
   border-color: #fff;
   background-color: transparent;
   transition: transform 0.1s ease-in-out;
+}
+
+.audio-block__empty {
+  cursor : none;
+  pointer-events: none;
+  background-color: #fff;
 }
 
 .audio-block--break {

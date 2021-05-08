@@ -25,6 +25,7 @@
 }
 
 .audio-control__speed {
+  user-select: none;
   font-size: 0.6rem;
   font-weight: 600;
   color: var(--control-color);

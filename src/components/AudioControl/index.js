@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { playAudio } from '../../redux/actions'
+import { playAudio, moveBackwardAction, moveForwardAction, controlPlaybackRate } from '../../redux/actions'
 import classNames from 'classnames';
 import './AudioControl.css';
-
+const playBackRates = ['1.0', '1.5', '2.0'];
 class AudioControl extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render () {
-    const { play, moveBackward, moveForward } = this.props;
+    const { play, moveBackward, moveForward, playbackRateIndex } = this.props;
     return (
       <div className="audio-control my-6 mx-auto br-5 w-100">
         <div className="audio-control__controls-wrapper p-2">
@@ -19,9 +16,9 @@ class AudioControl extends Component {
               'audio-control__control-icons': true, 
               'icon-backward': true,
               'c-pointer': true,
-              'audio-control__disabled': !moveBackward
+              // 'audio-control__disabled': !moveBackward
             })
-          }></i>
+          } onClick={() => this.props.moveBackwardAction(moveBackward + 1)}></i>
           <i className={
             classNames({
               'audio-control__control-icons': true, 
@@ -36,10 +33,13 @@ class AudioControl extends Component {
               'audio-control__control-icons': true, 
               'icon-forward': true,
               'c-pointer': true,
-              'audio-control__disabled': !moveForward
+              // 'audio-control__disabled': !moveForward
             })
-          }></i>
-          <span className="audio-control__speed ml-1 p-0-5 c-pointer br-5">1.0x</span>
+          } onClick={() => this.props.moveForwardAction(moveForward + 1)}></i>
+          <span 
+            onClick={() => this.props.controlPlaybackRate(playbackRateIndex + 1)}
+            className="audio-control__speed ml-1 p-0-5 c-pointer br-5">
+              {playBackRates[playbackRateIndex % playBackRates.length]}x</span>
         </div>
         <button className="audio-control__share mr-2 br-5 c-pointer">Share</button>
       </div>
@@ -48,10 +48,13 @@ class AudioControl extends Component {
 }
 
 const mapStateToProps = state => {
-  const { play, moveBackward, moveForward } = state.controlAudio;
-  return { play, moveBackward, moveForward };
+  const { play, moveForward, moveBackward, playbackRateIndex } = state.controlAudio;
+  return { play, moveForward, moveBackward, playbackRateIndex };
 }
 
 export default connect(mapStateToProps, {
-  playAudio
+  playAudio,
+  moveBackwardAction,
+  moveForwardAction,
+  controlPlaybackRate
 })(AudioControl);

@@ -17,8 +17,8 @@ class AudioPlayer extends Component {
   componentDidMount () {
     this.audio.addEventListener('loadeddata', () => {
       this.props.loadAudio(this.audio.duration, this.audio);
+      this.props.loadTranscript(transcriptData);
     });
-    this.props.loadTranscript(transcriptData);
   }
 
   componentDidUpdate () {

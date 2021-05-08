@@ -1,9 +1,14 @@
-import { LOAD_TRANSCRIPT } from "../actionTypes";
+import { LOAD_TRANSCRIPT, HIGHLIGHT_WORD } from "../actionTypes";
 
 const initialState = {
   startTimes: [],
   endTimes: [],
-  transcriptData: []
+  highlightWord: {},
+  transcriptData: [],
+  aggregateData: {
+    speaker1: [],
+    speaker2: []
+  }
 };
 
 const loadTranscript = (state = initialState, action) => {
@@ -12,6 +17,12 @@ const loadTranscript = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload
+      };
+    }
+    case HIGHLIGHT_WORD: {
+      return {
+        ...state,
+        highlightWord: action.payload
       };
     }
     default: {

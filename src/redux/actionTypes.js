@@ -1,3 +1,7 @@
 export const LOAD_AUDIO = 'LOAD_AUDIO';
 export const PLAY_AUDIO = 'PLAY_AUDIO';
+export const MOVE_FORWARD = 'MOVE_FORWARD';
+export const MOVE_BACKWARD = 'MOVE_BACKWARD';
 export const LOAD_TRANSCRIPT = 'LOAD_TRANSCRIPT';
+export const HIGHLIGHT_WORD = 'HIGHLIGHT_WORD';
+export const CONTROL_PLAYBACK = 'CONTROL_PLAYBACK';
